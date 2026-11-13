@@ -108,7 +108,17 @@ export function kvittorad(namn: string, antal: number, pris: number): string {
 //     dubbla(4) ger 8. ärJämnt(4) ger true.
 export const dubbla = (n: number): number => {
     // TODO
+    return n * 2
 }
+//const dubbla = (n: number): number => n * 2
+const double = (n: number): number => n * 2
+
 export const ärJämnt = (n: number): boolean => {
     // TODO
+    return n % 2 === 0 ? true : false
 }
+//const ärJämnt = (n: number): boolean => (n % 2 === 0 ? true : false)
+const isEven = (n: number): boolean => (n % 2 === 0 ? true : false)
+
+//Arrow function is shorter and also asign the return value directly
+//without using a return keyword
