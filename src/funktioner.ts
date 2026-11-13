@@ -45,22 +45,55 @@ export function ärÖppet(veckodag: string, klockslag: number): boolean {
 
 // 5. Summan av alla tal i listan, med en loop. summa([1, 2, 3]) ger 6.
 export function summa(tal: number[]): number {
+    let sum: number = 0
     // TODO
+    if (tal.length > 0) {
+        for (const t of tal) sum += t
+    }
+    return sum
 }
 
 // 6. Medelvärdet. snitt([2, 4, 6]) ger 4. Tom lista ger 0.
 export function snitt(tal: number[]): number {
     // TODO
+    let sum: number = 0
+    if (tal.length > 0) {
+        for (let i = 0; i < tal.length; i++) {
+            sum += tal[i]
+        }
+        return sum / tal.length
+    } else return sum
 }
+
+//orrrrrrrrrrrrrrrrrrrrrr
+
+/*
+   let sum: number = 0
+  for (let i = 0; i < tal.length; i++) {
+            sum += tal[i]
+        }
+        return tal.length  > 0 ?  sum/  tal.length : sum
+
+*/
 
 // 7. Det största talet, med en loop. största([3, 9, 4]) ger 9. Tom lista ger undefined.
 export function största(tal: number[]): number | undefined {
-    // TODO
+    if (tal.length === 0) return undefined
+    else {
+        let m: number = tal[0]
+        for (const t of tal) {
+            if (t > m) m = t
+        }
+
+        return m
+        // TODO
+    }
 }
 
 // 8. Upprepa en text. upprepa("ab", 3) ger "ababab". Använd en loop.
 export function upprepa(text: string, antal: number): string {
     // TODO
+    return text.repeat(antal)
 }
 
 // 9. En kvittorad. kvittorad("Kaffe", 2, 32) ger "2 x Kaffe: 64 kr".
