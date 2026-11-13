@@ -33,6 +33,13 @@ export function medRabatt(pris: number, procent: number): number {
 // 4. Är kaféet öppet? Vardagar 7–18, helger (lördag, söndag) 9–16.
 //    Öppnar vid starttimmen, stänger vid sluttimmen (18 är stängt).
 export function ärÖppet(veckodag: string, klockslag: number): boolean {
+    let weekdays = ['Måndag', 'Tisdag', 'Onsdag', 'Torsdag', 'Fredag']
+    if (
+        (weekdays.includes(veckodag) && klockslag >= 7 && klockslag <= 18) ||
+        (!weekdays.includes(veckodag) && klockslag >= 9 && klockslag <= 16)
+    )
+        return true
+    else return false
     // TODO
 }
 
