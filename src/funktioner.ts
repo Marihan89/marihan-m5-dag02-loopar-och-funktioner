@@ -13,11 +13,11 @@ export function formateraPris(pris: number): string {
     }
 }
 
-// 2. Momsdelen av ett pris med 12 % moms (fiktiv sats), avrundad till två decimaler.
+// 2. Momsdelen av ett pris med 12 % moms (fiktiv sats)
+// , avrundad till två decimaler.
 //    momsDel(112) ger 12.
 export function momsDel(pris: number): number {
-    return (pris * 12) / 112
-
+    return Math.round(((pris * 12) / 112) * 100) / 100
     // TODO
 }
 
@@ -33,10 +33,14 @@ export function medRabatt(pris: number, procent: number): number {
 // 4. Är kaféet öppet? Vardagar 7–18, helger (lördag, söndag) 9–16.
 //    Öppnar vid starttimmen, stänger vid sluttimmen (18 är stängt).
 export function ärÖppet(veckodag: string, klockslag: number): boolean {
-    let weekdays = ['Måndag', 'Tisdag', 'Onsdag', 'Torsdag', 'Fredag']
+    let weekdays = ['MÅNDAG', 'TISDAG', 'ONSDAG', 'TORSDAG', 'FREDAG']
     if (
-        (weekdays.includes(veckodag) && klockslag >= 7 && klockslag <= 18) ||
-        (!weekdays.includes(veckodag) && klockslag >= 9 && klockslag <= 16)
+        (weekdays.includes(veckodag.toUpperCase()) &&
+            klockslag >= 7 &&
+            klockslag <= 17) ||
+        (!weekdays.includes(veckodag.toUpperCase()) &&
+            klockslag >= 9 &&
+            klockslag <= 15)
     )
         return true
     else return false
@@ -101,7 +105,7 @@ export function upprepa(text: string, antal: number): string {
 export function kvittorad(namn: string, antal: number, pris: number): string {
     // TODO
     let total: number = antal * pris
-    return `${antal} x ${namn} : ${formateraPris(total)}`
+    return `${antal} x ${namn}: ${formateraPris(total)}`
 }
 
 // 10. Pilfunktioner. Skriv dem själv med const och =>.
