@@ -126,3 +126,17 @@ const isEven = (n: number): boolean => (n % 2 === 0 ? true : false)
 
 //Arrow function is shorter and also asign the return value directly
 //without using a return keyword
+
+//Extras
+export function Reciept(name: string, price: number, num: number): string {
+    let total: number = num * price
+    let vat: number = total * 0.12
+    let ordertotal: number = total + vat
+    let recp = `${num} X ${name}        ${formateraPris(total)}
+=================================================
+SubTotal :              ${total}
+Tax :                   ${vat}
+Total :                 ${formateraPris(ordertotal)}`
+
+    return recp
+}
